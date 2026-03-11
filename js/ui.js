@@ -116,16 +116,31 @@ function renderPromptsByCategory(prompts) {
     html += `
       <div class="prompt-category">
         <h3>${cat.icon} ${cat.title}</h3>
-        ${cat.prompts.map((p, i) => `
+        ${cat.prompts.map((p, i) => {
+          const pr = p.prompt;
+          const isStructured = pr && typeof pr === 'object';
+          const fullPromptText = isStructured
+            ? `ROLE: ${pr.role}\n\nCONTEXT: ${pr.context}\n\nTASK: ${pr.task}\n\nSTEPS: ${pr.steps}\n\nCONSTRAINTS: ${pr.constraints}\n\nOUTPUT: ${pr.output}`
+            : (typeof pr === 'string' ? pr : '');
+          return `
           <div class="prompt-card">
             <div class="prompt-header">
               <span class="prompt-title">${escapeHtml(p.title)}</span>
-              <button class="copy-btn" data-prompt="${escapeHtml(p.prompt)}">Copy</button>
+              <button class="copy-btn" data-prompt="${escapeHtml(fullPromptText)}">Copy</button>
             </div>
-            <p class="prompt-text">${escapeHtml(p.prompt)}</p>
+            ${isStructured ? `
+              <div class="prompt-decomposed">
+                <div class="pd-row"><span class="pd-label">🎭 Role</span><span class="pd-value">${escapeHtml(pr.role)}</span></div>
+                <div class="pd-row"><span class="pd-label">🏢 Context</span><span class="pd-value">${escapeHtml(pr.context)}</span></div>
+                <div class="pd-row"><span class="pd-label">🎯 Task</span><span class="pd-value">${escapeHtml(pr.task)}</span></div>
+                <div class="pd-row"><span class="pd-label">📋 Steps</span><span class="pd-value pd-steps">${escapeHtml(pr.steps)}</span></div>
+                <div class="pd-row"><span class="pd-label">⚠️ Constraints</span><span class="pd-value">${escapeHtml(pr.constraints)}</span></div>
+                <div class="pd-row pd-output-row"><span class="pd-label">📤 Output</span><span class="pd-value">${escapeHtml(pr.output)}</span></div>
+              </div>
+            ` : `<p class="prompt-text">${escapeHtml(fullPromptText)}</p>`}
             <p class="prompt-why">${escapeHtml(p.why)}</p>
           </div>
-        `).join('')}
+        `}).join('')}
       </div>
     `;
   }

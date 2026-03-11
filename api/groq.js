@@ -55,11 +55,20 @@ Choose agents that:
 
 ## PROMPT STYLE RULES
 
-Each prompt must be:
-- Specific to THEIR situation (use their words, their context)
-- Copy-paste ready (no placeholders like [X] — fill in from their input)
+Each prompt uses the DECOMPOSITION technique — structured into 6 elements so the user can copy-paste the entire block directly into ChatGPT or Claude:
+
+1. ROLE — Who the AI should be (specific expert, not generic)
+2. CONTEXT — Their exact business situation (use their words and numbers)
+3. TASK — The single clear thing to do
+4. STEPS — 3-5 numbered steps the AI should follow to complete the task
+5. CONSTRAINTS — What to avoid, tone, length, format limits
+6. OUTPUT — Exact format of what should come back (table, list, paragraph, etc.)
+
+Rules:
+- Every element must be filled in from THEIR input — no generic placeholders
+- The full prompt must be copy-paste ready as one block
 - Actionable TODAY — no "first gather data for 3 months"
-- Practical & direct — no fluff, no theory
+- Steps should be specific to their industry and situation
 
 ## AGENT ROI RULES
 
@@ -79,7 +88,14 @@ Return JSON only. No markdown, no explanation, no preamble.
     {
       "category": "quick_win" | "data_clarity" | "implementation" | "scale",
       "title": "Short title (5 words max)",
-      "prompt": "The actual prompt they copy-paste",
+      "prompt": {
+        "role": "You are a [specific expert] with deep experience in [their industry]",
+        "context": "My business is [their specific situation with their numbers and words]",
+        "task": "Your task is to [single clear action]",
+        "steps": "Follow these steps:\n1. [step specific to their situation]\n2. [step]\n3. [step]\n4. [step]\n5. [step if needed]",
+        "constraints": "Do not [constraint]. Keep [format constraint]. Focus only on [scope].",
+        "output": "Give me [exact output format: e.g. a table with columns X,Y,Z / a numbered list of N items / a paragraph under 200 words]"
+      },
       "why": "One line — why this matters for them"
     }
   ],

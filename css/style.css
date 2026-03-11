@@ -256,6 +256,61 @@ textarea:focus {
   background: var(--border);
 }
 
+/* Decomposed prompt */
+.prompt-decomposed {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+
+.pd-row {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.pd-row:last-child {
+  border-bottom: none;
+}
+
+.pd-label {
+  width: 120px;
+  flex-shrink: 0;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg);
+  font-weight: 600;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+.pd-value {
+  padding: 0.6rem 0.75rem;
+  color: var(--text);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.pd-steps {
+  white-space: pre-line;
+}
+
+.pd-output-row .pd-label {
+  color: var(--primary);
+}
+
+.pd-output-row .pd-value {
+  font-weight: 500;
+  color: var(--primary);
+}
+
 .prompt-text {
   font-size: 0.95rem;
   margin-bottom: 0.5rem;

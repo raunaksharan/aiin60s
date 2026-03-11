@@ -389,6 +389,21 @@ textarea:focus {
   color: var(--text-muted);
 }
 
+.cta-contact {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.cta-contact a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.cta-contact a:hover {
+  text-decoration: underline;
+}
+
 /* Redirect Banner */
 .redirect-banner {
   background: #fffbeb;

@@ -64,11 +64,9 @@ function renderResults(result) {
             <a href="https://calendly.com/team-notiondemand" target="_blank" class="cta-primary">
               Book a Strategy Call (DFY)
             </a>
-            <a href="mailto:team@notiondemand.com?subject=AI%20Agents%20Inquiry" class="cta-secondary">
-              Email Us
-            </a>
           </div>
           <p class="cta-note">Done-For-You: ₹1L – ₹3L | Done-With-You available</p>
+          <p class="cta-contact">Contact us: <a href="mailto:team@notiondemand.com">team@notiondemand.com</a> | Ph: <a href="tel:+919082673098">+91 9082673098</a></p>
         </div>
       </div>
 

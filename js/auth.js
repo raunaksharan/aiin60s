@@ -1,14 +1,4 @@
-// auth.js - Passcode validation
-
-const VALID_PASSCODES = [
-  'NOTIONAI2024',
-  'EARLYADOPTER',
-  // Add codes as needed
-];
-
-function validatePasscode(code) {
-  return VALID_PASSCODES.includes(code.toUpperCase().trim());
-}
+// auth.js - Passcode validation (calls server-side API)
 
 function checkAuth() {
   return localStorage.getItem('nd_authenticated') === 'true';
@@ -37,15 +27,36 @@ if (document.getElementById('submit-code')) {
   const passcodeInput = document.getElementById('passcode');
   const errorMsg = document.getElementById('error-msg');
 
-  function handleSubmit() {
-    const code = passcodeInput.value;
-    if (validatePasscode(code)) {
-      setAuth();
-      window.location.href = 'app.html';
-    } else {
+  async function handleSubmit() {
+    const code = passcodeInput.value.trim();
+    if (!code) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Checking...';
+
+    try {
+      const res = await fetch('/api/validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code })
+      });
+      const data = await res.json();
+
+      if (data.valid) {
+        setAuth();
+        window.location.href = 'app.html';
+      } else {
+        errorMsg.classList.remove('hidden');
+        passcodeInput.value = '';
+        passcodeInput.focus();
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Get My Prompts →';
+      }
+    } catch (err) {
+      errorMsg.textContent = 'Network error. Please try again.';
       errorMsg.classList.remove('hidden');
-      passcodeInput.value = '';
-      passcodeInput.focus();
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Get My Prompts →';
     }
   }
 

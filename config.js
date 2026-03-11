@@ -16,7 +16,7 @@ const CONFIG = {
   },
 
   CTA_LINKS: {
-    calendly: 'https://calendly.com/notiondemand/strategy',
+    calendly: 'https://calendly.com/team-notiondemand',
     email: 'team@notiondemand.com',
     gumroad: 'https://notiondemand.gumroad.com/l/ai-prompts'
   },

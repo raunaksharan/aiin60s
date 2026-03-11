@@ -61,7 +61,7 @@ function renderResults(result) {
         <div class="cta-section">
           <h3>Ready to automate?</h3>
           <div class="cta-buttons">
-            <a href="https://calendly.com/notiondemand/strategy" target="_blank" class="cta-primary">
+            <a href="https://calendly.com/team-notiondemand" target="_blank" class="cta-primary">
               Book a Strategy Call (DFY)
             </a>
             <a href="mailto:team@notiondemand.com?subject=AI%20Agents%20Inquiry" class="cta-secondary">

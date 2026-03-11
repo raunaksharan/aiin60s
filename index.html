@@ -5,26 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Prompt Generator | NotionDemand</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/landing.css">
 </head>
-<body>
-  <div class="container">
-    <div class="auth-card">
-      <img src="assets/logo.png" alt="NotionDemand" class="logo" onerror="this.style.display='none'">
-      <h1>AI Prompt Generator</h1>
-      <p>Enter your access code to continue</p>
+<body class="landing-body">
 
-      <div class="input-group">
+  <!-- Hero -->
+  <div class="landing-hero">
+    <div class="landing-hero-inner">
+      <div class="landing-badge">⚡ Powered by AI · Results in 60 seconds</div>
+      <h1 class="landing-h1">Get 10 AI Prompts <span class="gradient-text">custom-built for YOUR business</span> + a 5-agent automation blueprint with ROI projections</h1>
+      <p class="landing-subheading">Describe your business situation. We classify your exact need, generate copy-paste prompts, and show you exactly which AI agents to build — with time saved and revenue impact per agent.</p>
+    </div>
+  </div>
+
+  <!-- Value Stack -->
+  <div class="value-section">
+    <div class="value-inner">
+      <p class="value-eyebrow">What's inside your $27 toolkit</p>
+      <h2 class="value-heading">7 real things. Zero fluff.</h2>
+
+      <div class="value-grid">
+
+        <div class="value-card vc-blue">
+          <div class="vc-number">01</div>
+          <div class="vc-icon">🧠</div>
+          <h3>AI Business Diagnosis</h3>
+          <p>We classify your exact business need and summarise your situation in plain English.</p>
+        </div>
+
+        <div class="value-card vc-purple">
+          <div class="vc-number">02</div>
+          <div class="vc-icon">📋</div>
+          <h3>10 Done-For-You Prompts</h3>
+          <p>Copy-paste ready. Specific to YOUR business — not templates. Structured as Quick Wins, Data Clarity, Implementation & Scale.</p>
+        </div>
+
+        <div class="value-card vc-green">
+          <div class="vc-number">03</div>
+          <div class="vc-icon">🤖</div>
+          <h3>5-Agent Automation Blueprint</h3>
+          <p>Exactly which AI agents to build for your business — with what each one does in one line.</p>
+        </div>
+
+        <div class="value-card vc-orange">
+          <div class="vc-number">04</div>
+          <div class="vc-icon">📈</div>
+          <h3>ROI Projection Report</h3>
+          <p>Time saved per week + revenue/cost impact per agent. Specific numbers, not vague estimates.</p>
+        </div>
+
+        <div class="value-card vc-teal">
+          <div class="vc-number">05</div>
+          <div class="vc-icon">💥</div>
+          <h3>Combined Impact Summary</h3>
+          <p>"If you build all 5 agents, here's what happens to your business." Compounding ROI made visible.</p>
+        </div>
+
+        <div class="value-card vc-pink">
+          <div class="vc-number">06</div>
+          <div class="vc-icon">📬</div>
+          <h3>Direct Team Access</h3>
+          <p>Email us anytime. Real humans who build AI agents for a living — not a chatbot support queue.</p>
+        </div>
+
+        <div class="value-card vc-indigo vc-wide">
+          <div class="vc-number">07</div>
+          <div class="vc-icon">🚀</div>
+          <h3>Priority DFY Upgrade Path</h3>
+          <p>Skip DIY entirely. Book a strategy call and we'll build all 5 agents for your business in 1 week. ₹1L – ₹3L. Done.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Passcode Gate -->
+  <div class="gate-section">
+    <div class="gate-card">
+      <div class="gate-lock">🔐</div>
+      <h2>Enter your access code</h2>
+      <p>You should have received this after your Gumroad purchase.</p>
+
+      <div class="gate-input-group">
         <input type="text" id="passcode" placeholder="Enter passcode" autocomplete="off">
-        <button id="submit-code">Access</button>
+        <button id="submit-code">Get My Prompts →</button>
       </div>
 
       <p id="error-msg" class="error hidden">Invalid passcode. Please try again.</p>
 
       <p class="help-text">
-        Don't have a code? <a href="https://notiondemand.gumroad.com/l/ai-prompts" target="_blank">Get access on Gumroad</a>
+        Don't have a code? <a href="https://notiondemand.gumroad.com/l/ai-prompts" target="_blank">Get access on Gumroad →</a>
       </p>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <p>© NotionDemand · <a href="mailto:team@notiondemand.com">team@notiondemand.com</a> · <a href="tel:+919082673098">+91 9082673098</a></p>
+  </footer>
 
   <script src="js/auth.js"></script>
 </body>

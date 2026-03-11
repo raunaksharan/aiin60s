@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       handleClassification(result, input);
     } catch (error) {
       console.error('Error:', error);
-      alert('Something went wrong. Please try again.');
+      alert('Something went wrong: ' + error.message);
     } finally {
       // Reset button state
       generateBtn.disabled = false;

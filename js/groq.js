@@ -144,7 +144,8 @@ async function callGroq(userInput) {
     }
 
     if (!response.ok) {
-      throw new Error(`API error: ${response.status}`);
+      const errBody = await response.text();
+      throw new Error(`API error ${response.status}: ${errBody}`);
     }
 
     return await response.json();

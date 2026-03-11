@@ -2,7 +2,7 @@
 // This keeps the API key server-side, out of the browser.
 // Set GROQ_API_KEY in your Vercel project's Environment Variables.
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }

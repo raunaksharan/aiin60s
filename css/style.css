@@ -389,6 +389,61 @@ textarea:focus {
   color: var(--text-muted);
 }
 
+/* Redirect Banner */
+.redirect-banner {
+  background: #fffbeb;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.redirect-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.redirect-banner-inner > div {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.redirect-banner-inner strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #92400e;
+}
+
+.redirect-banner-inner span {
+  color: #78350f;
+}
+
+.redirect-banner-btn {
+  padding: 0.5rem 1rem;
+  background: #f59e0b;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.redirect-banner-btn:hover {
+  background: #d97706;
+}
+
+.redirect-banner-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #92400e;
+  font-size: 1rem;
+  padding: 0.25rem;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .container {

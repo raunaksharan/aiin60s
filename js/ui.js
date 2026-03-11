@@ -119,8 +119,11 @@ function renderPromptsByCategory(prompts) {
         ${cat.prompts.map((p, i) => {
           const pr = p.prompt;
           const isStructured = pr && typeof pr === 'object';
+          const stepsText = isStructured
+            ? (Array.isArray(pr.steps) ? pr.steps.map((s,i) => `${i+1}. ${s}`).join('\n') : pr.steps)
+            : '';
           const fullPromptText = isStructured
-            ? `ROLE: ${pr.role}\n\nCONTEXT: ${pr.context}\n\nTASK: ${pr.task}\n\nSTEPS: ${pr.steps}\n\nCONSTRAINTS: ${pr.constraints}\n\nOUTPUT: ${pr.output}`
+            ? `ROLE: ${pr.role}\n\nCONTEXT: ${pr.context}\n\nTASK: ${pr.task}\n\nSTEPS:\n${stepsText}\n\nCONSTRAINTS: ${pr.constraints}\n\nOUTPUT: ${pr.output}`
             : (typeof pr === 'string' ? pr : '');
           return `
           <div class="prompt-card">
@@ -133,7 +136,7 @@ function renderPromptsByCategory(prompts) {
                 <div class="pd-row"><span class="pd-label">🎭 Role</span><span class="pd-value">${escapeHtml(pr.role)}</span></div>
                 <div class="pd-row"><span class="pd-label">🏢 Context</span><span class="pd-value">${escapeHtml(pr.context)}</span></div>
                 <div class="pd-row"><span class="pd-label">🎯 Task</span><span class="pd-value">${escapeHtml(pr.task)}</span></div>
-                <div class="pd-row"><span class="pd-label">📋 Steps</span><span class="pd-value pd-steps">${escapeHtml(pr.steps)}</span></div>
+                <div class="pd-row"><span class="pd-label">📋 Steps</span><span class="pd-value pd-steps">${escapeHtml(stepsText)}</span></div>
                 <div class="pd-row"><span class="pd-label">⚠️ Constraints</span><span class="pd-value">${escapeHtml(pr.constraints)}</span></div>
                 <div class="pd-row pd-output-row"><span class="pd-label">📤 Output</span><span class="pd-value">${escapeHtml(pr.output)}</span></div>
               </div>

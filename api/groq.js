@@ -92,7 +92,7 @@ Return JSON only. No markdown, no explanation, no preamble.
         "role": "You are a [specific expert] with deep experience in [their industry]",
         "context": "My business is [their specific situation with their numbers and words]",
         "task": "Your task is to [single clear action]",
-        "steps": "Follow these steps:\n1. [step specific to their situation]\n2. [step]\n3. [step]\n4. [step]\n5. [step if needed]",
+        "steps": ["Step 1 specific to their situation", "Step 2", "Step 3", "Step 4", "Step 5 if needed"],
         "constraints": "Do not [constraint]. Keep [format constraint]. Focus only on [scope].",
         "output": "Give me [exact output format: e.g. a table with columns X,Y,Z / a numbered list of N items / a paragraph under 200 words]"
       },

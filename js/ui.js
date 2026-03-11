@@ -14,7 +14,6 @@ function renderResults(result) {
       <div class="summary-card">
         <h2>Your Situation</h2>
         <p>${escapeHtml(result.business_summary)}</p>
-        ${deepDiveLink(result.classification)}
       </div>
 
       <!-- Prompts Section -->
@@ -56,6 +55,23 @@ function renderResults(result) {
         <div class="roi-summary">
           <h3>Combined Impact</h3>
           <p>${escapeHtml(result.total_roi_summary)}</p>
+        </div>
+
+        <!-- Deep Dive Links -->
+        <div class="deep-dive-section">
+          <p class="deep-dive-heading">Want to go deeper?</p>
+          <div class="deep-dive-cards">
+            <a href="https://notiondemandforecast.info" target="_blank" rel="noopener" class="deep-dive-card">
+              <span class="dd-icon">📈</span>
+              <span class="dd-label">Demand Forecasting & Inventory Planning</span>
+              <span class="dd-arrow">→</span>
+            </a>
+            <a href="https://notiondemandml.info" target="_blank" rel="noopener" class="deep-dive-card">
+              <span class="dd-icon">🤖</span>
+              <span class="dd-label">Machine Learning & Predictive Analytics</span>
+              <span class="dd-arrow">→</span>
+            </a>
+          </div>
         </div>
 
         <!-- CTA -->
@@ -117,15 +133,6 @@ function renderPromptsByCategory(prompts) {
   return html;
 }
 
-function deepDiveLink(classification) {
-  const links = {
-    forecasting: { url: 'https://notiondemandforecast.info', label: 'Demand Forecasting & Inventory Planning' },
-    ml: { url: 'https://notiondemandml.info', label: 'Machine Learning & Predictive Analytics' }
-  };
-  const meta = links[classification];
-  if (!meta) return '';
-  return `<p class="deep-dive-link">For a further deep dive into <a href="${meta.url}" target="_blank" rel="noopener">${meta.label}</a> specifically for your business →</p>`;
-}
 
 function escapeHtml(text) {
   const div = document.createElement('div');

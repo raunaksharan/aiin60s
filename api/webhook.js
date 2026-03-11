@@ -1,31 +1,20 @@
 // api/webhook.js — Razorpay webhook handler
-// Verifies payment, generates passcode, emails it via Resend.
+// Verifies payment, emails access code + login link via Resend.
 //
 // Required env vars:
 //   RAZORPAY_WEBHOOK_SECRET  — from Razorpay Dashboard > Webhooks
-//   PASSCODE_SECRET          — any random secret string
 //   RESEND_API_KEY           — from resend.com
 //   FROM_EMAIL               — verified sender, e.g. noreply@notiondemand.com
+//   SITE_URL                 — your live URL, e.g. https://aiin60s.vercel.app
 
 const crypto = require('crypto');
 
-function generatePasscode(paymentId) {
-  const secret = process.env.PASSCODE_SECRET;
-  const prefix = crypto.createHmac('sha256', secret)
-    .update(paymentId + '-prefix')
-    .digest('hex')
-    .substring(0, 6)
-    .toUpperCase();
-  const check = crypto.createHmac('sha256', secret)
-    .update(prefix)
-    .digest('hex')
-    .substring(0, 6)
-    .toUpperCase();
-  return 'ND' + prefix + check;
-}
+const ACCESS_CODE = 'EARLYADOPTER';
 
-async function sendPasscodeEmail(email, passcode, name) {
+async function sendAccessEmail(email, name) {
   const firstName = name ? name.split(' ')[0] : 'there';
+  const loginUrl = (process.env.SITE_URL || 'https://aiin60s.vercel.app') + '/index.html';
+
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
@@ -35,29 +24,37 @@ async function sendPasscodeEmail(email, passcode, name) {
     body: JSON.stringify({
       from: process.env.FROM_EMAIL || 'NotionDemand <noreply@notiondemand.com>',
       to: [email],
-      subject: '🔐 Your NotionDemand Access Code',
+      subject: '🔐 Your NotionDemand Access Code is here!',
       html: `
         <div style="font-family: -apple-system, sans-serif; max-width: 520px; margin: 0 auto; padding: 2rem;">
-          <h2 style="color: #1e293b;">Hey ${firstName}! Your access code is ready.</h2>
-          <p style="color: #475569;">Here's your personal access code for the AI Prompt Generator:</p>
+
+          <h2 style="color: #1e293b; margin-bottom: 0.5rem;">Hey ${firstName}! You're in. 🎉</h2>
+          <p style="color: #475569; margin-top: 0;">Your AI Prompt Generator access is ready. Here's everything you need:</p>
 
           <div style="background: #f1f5f9; border-radius: 10px; padding: 1.5rem; text-align: center; margin: 1.5rem 0;">
-            <p style="margin: 0 0 0.5rem; color: #64748b; font-size: 0.85rem;">YOUR ACCESS CODE</p>
-            <p style="margin: 0; font-size: 1.75rem; font-weight: 800; letter-spacing: 0.1em; color: #2563eb;">${passcode}</p>
+            <p style="margin: 0 0 0.5rem; color: #64748b; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Your Access Code</p>
+            <p style="margin: 0 0 1.25rem; font-size: 2rem; font-weight: 800; letter-spacing: 0.15em; color: #2563eb;">${ACCESS_CODE}</p>
+            <a href="${loginUrl}" style="display: inline-block; background: #2563eb; color: white; text-decoration: none; padding: 0.75rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem;">
+              Login & Get My Prompts →
+            </a>
           </div>
 
-          <p style="color: #475569;"><strong>How to use it:</strong></p>
-          <ol style="color: #475569; line-height: 1.8;">
-            <li>Go to your tool link</li>
-            <li>Enter the code above</li>
-            <li>Describe your business situation</li>
-            <li>Get 10 custom AI prompts + 5-agent blueprint in 60 seconds</li>
+          <p style="color: #475569;"><strong>How it works:</strong></p>
+          <ol style="color: #475569; line-height: 2;">
+            <li>Click the button above (or go to <a href="${loginUrl}" style="color: #2563eb;">${loginUrl}</a>)</li>
+            <li>Enter your access code: <strong>${ACCESS_CODE}</strong></li>
+            <li>Describe your business situation in 2–3 sentences</li>
+            <li>Get 10 custom AI prompts + 5-agent blueprint with ROI — in 60 seconds</li>
           </ol>
 
-          <p style="color: #475569; margin-top: 1.5rem;">Questions? Reply to this email or reach us at <a href="mailto:team@notiondemand.com" style="color: #2563eb;">team@notiondemand.com</a> or <a href="tel:+919082673098" style="color: #2563eb;">+91 9082673098</a>.</p>
+          <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0;">
+            <p style="margin: 0; color: #1e40af; font-size: 0.9rem;"><strong>Want us to build the agents for you?</strong><br>Book a free strategy call and our team will deploy all 5 agents for your business in 1 week. <a href="https://calendly.com/team-notiondemand" style="color: #2563eb;">Book here →</a></p>
+          </div>
+
+          <p style="color: #475569; margin-top: 1.5rem; font-size: 0.9rem;">Questions? We're here — <a href="mailto:team@notiondemand.com" style="color: #2563eb;">team@notiondemand.com</a> or <a href="tel:+919082673098" style="color: #2563eb;">+91 9082673098</a></p>
 
           <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 1.5rem 0;">
-          <p style="color: #94a3b8; font-size: 0.8rem;">© NotionDemand · You're receiving this because you purchased access.</p>
+          <p style="color: #94a3b8; font-size: 0.75rem; margin: 0;">© NotionDemand · You're receiving this because you purchased access.</p>
         </div>
       `
     })
@@ -89,7 +86,6 @@ module.exports = async function handler(req, res) {
 
   const event = req.body.event;
 
-  // Only handle successful payments
   if (event !== 'payment.captured') {
     return res.status(200).json({ status: 'ignored', event });
   }
@@ -99,18 +95,17 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Missing payment entity' });
   }
 
-  const { id: paymentId, email, contact } = payment;
-  const name = payment.notes?.name || payment.description || '';
+  const { email } = payment;
+  const name = payment.notes?.name || '';
 
   if (!email) {
-    console.error('No email in payment:', paymentId);
+    console.error('No email in payment:', payment.id);
     return res.status(400).json({ error: 'No email found in payment' });
   }
 
   try {
-    const passcode = generatePasscode(paymentId);
-    await sendPasscodeEmail(email, passcode, name);
-    console.log(`Passcode sent to ${email} for payment ${paymentId}`);
+    await sendAccessEmail(email, name);
+    console.log(`Access email sent to ${email} for payment ${payment.id}`);
     return res.status(200).json({ status: 'ok' });
   } catch (error) {
     console.error('Webhook handler error:', error);

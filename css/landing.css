@@ -167,6 +167,100 @@
   margin: 0;
 }
 
+/* Buy Section */
+.buy-section {
+  background: linear-gradient(135deg, #0f0f1a, #1a1040);
+  padding: 3.5rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.buy-inner {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.buy-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #34d399;
+  margin-bottom: 0.5rem;
+}
+
+.buy-heading {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 800;
+  color: #f1f5f9;
+  margin-bottom: 0.6rem;
+}
+
+.buy-price {
+  color: #34d399;
+}
+
+.buy-sub {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.buy-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 4px 24px rgba(16,185,129,0.3);
+}
+
+.buy-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+}
+
+.buy-note {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: #475569;
+}
+
+/* Divider */
+.gate-divider {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  background: #0d1117;
+  position: relative;
+}
+
+.gate-divider::before,
+.gate-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+.gate-divider::before { left: 5%; }
+.gate-divider::after  { right: 5%; }
+
+.gate-divider span {
+  font-size: 0.8rem;
+  color: #475569;
+  background: #0d1117;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
 /* Gate Section */
 .gate-section {
   background: linear-gradient(180deg, #0f0f1a 0%, #0d1117 100%);

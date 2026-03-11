@@ -14,6 +14,7 @@ function renderResults(result) {
       <div class="summary-card">
         <h2>Your Situation</h2>
         <p>${escapeHtml(result.business_summary)}</p>
+        ${deepDiveLink(result.classification)}
       </div>
 
       <!-- Prompts Section -->
@@ -114,6 +115,16 @@ function renderPromptsByCategory(prompts) {
   }
 
   return html;
+}
+
+function deepDiveLink(classification) {
+  const links = {
+    forecasting: { url: 'https://notiondemandforecast.info', label: 'Demand Forecasting & Inventory Planning' },
+    ml: { url: 'https://notiondemandml.info', label: 'Machine Learning & Predictive Analytics' }
+  };
+  const meta = links[classification];
+  if (!meta) return '';
+  return `<p class="deep-dive-link">For a further deep dive into <a href="${meta.url}" target="_blank" rel="noopener">${meta.label}</a> specifically for your business →</p>`;
 }
 
 function escapeHtml(text) {

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Prompt Generator | NotionDemand</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="auth-card">
+      <img src="assets/logo.png" alt="NotionDemand" class="logo" onerror="this.style.display='none'">
+      <h1>AI Prompt Generator</h1>
+      <p>Enter your access code to continue</p>
+
+      <div class="input-group">
+        <input type="text" id="passcode" placeholder="Enter passcode" autocomplete="off">
+        <button id="submit-code">Access</button>
+      </div>
+
+      <p id="error-msg" class="error hidden">Invalid passcode. Please try again.</p>
+
+      <p class="help-text">
+        Don't have a code? <a href="https://notiondemand.gumroad.com/l/ai-prompts" target="_blank">Get access on Gumroad</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

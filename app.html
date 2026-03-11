@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Describe Your Business | NotionDemand</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="NotionDemand" class="logo-small" onerror="this.style.display='none'">
+    <button id="logout">Logout</button>
+  </header>
+
+  <main class="container">
+    <div class="input-section">
+      <h1>Tell us about your business situation</h1>
+      <p>Describe your challenges, goals, or what you're trying to automate. The more specific, the better your prompts.</p>
+
+      <textarea
+        id="business-input"
+        rows="8"
+        placeholder="Example: I run a D2C skincare brand doing ₹50L/month. We're struggling with cart abandonment (40% rate), managing 500+ SKUs across 3 warehouses, and our customer support team spends 6hrs/day answering repetitive questions..."
+      ></textarea>
+
+      <button id="generate-btn" class="primary-btn">
+        <span class="btn-text">Generate My Prompts</span>
+        <span class="btn-loading hidden">Analyzing...</span>
+      </button>
+    </div>
+
+    <!-- Results Section (hidden initially) -->
+    <div id="results-section" class="hidden">
+      <!-- Populated by JavaScript -->
+    </div>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="config.js"></script>
+  <script src="js/groq.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

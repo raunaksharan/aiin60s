@@ -10,6 +10,30 @@
 const crypto = require('crypto');
 
 const ACCESS_CODE = 'EARLYADOPTER';
+const FB_PIXEL_ID = '1295631849076932';
+
+async function sendFBPurchaseEvent(email, paymentId) {
+  const accessToken = process.env.FB_CAPI_ACCESS_TOKEN;
+  if (!accessToken) return;
+
+  const hashedEmail = crypto.createHash('sha256').update(email.trim().toLowerCase()).digest('hex');
+
+  await fetch(`https://graph.facebook.com/v19.0/${FB_PIXEL_ID}/events`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      data: [{
+        event_name: 'Purchase',
+        event_time: Math.floor(Date.now() / 1000),
+        event_id: paymentId,
+        action_source: 'website',
+        user_data: { em: [hashedEmail] },
+        custom_data: { value: 499, currency: 'INR' }
+      }],
+      access_token: accessToken
+    })
+  });
+}
 
 async function sendAccessEmail(email, name) {
   const firstName = name ? name.split(' ')[0] : 'there';
@@ -104,7 +128,10 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    await sendAccessEmail(email, name);
+    await Promise.all([
+      sendAccessEmail(email, name),
+      sendFBPurchaseEvent(email, payment.id)
+    ]);
     console.log(`Access email sent to ${email} for payment ${payment.id}`);
     return res.status(200).json({ status: 'ok' });
   } catch (error) {

@@ -20,7 +20,7 @@
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
       if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
       n.queue = []; t = b.createElement(e); t.async = !0;
@@ -37,15 +37,15 @@
   <style>
     /* Content sections structure */
     .section-dark {
-      background: #0f0f1a;
+      background: #f8fafc;
       padding: 5rem 2rem;
     }
 
     .section-light {
-      background: #161b2e;
+      background: #ffffff;
       padding: 5rem 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.02);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .max-w-3xl {
@@ -60,14 +60,14 @@
     .h2-title {
       font-size: 2.5rem;
       font-weight: 800;
-      color: #f1f5f9;
+      color: #0f172a;
       margin-bottom: 1.5rem;
       letter-spacing: -0.02em;
     }
 
     .p-body {
       font-size: 1.15rem;
-      color: #94a3b8;
+      color: #334155;
       line-height: 1.8;
       margin-bottom: 1.5rem;
     }
@@ -82,7 +82,7 @@
       position: relative;
       padding-left: 1.75rem;
       margin-bottom: 0.75rem;
-      color: #cbd5e1;
+      color: #1e293b;
       font-size: 1.1rem;
     }
 
@@ -98,15 +98,16 @@
     }
 
     .example-block {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
       padding: 1.5rem;
       border-radius: 12px;
       margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
     }
 
     .example-title {
-      color: #818cf8;
+      color: #4f46e5;
       font-weight: 700;
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
@@ -115,10 +116,15 @@
     .price-tag {
       font-family: monospace;
       background: rgba(99, 102, 241, 0.1);
-      color: #818cf8;
+      color: #4f46e5;
       padding: 0.2rem 0.6rem;
       border-radius: 4px;
       font-weight: bold;
+    }
+
+    .highlight {
+      color: #4f46e5;
+      font-weight: 700;
     }
   </style>
 </head>
@@ -130,9 +136,10 @@
     <div class="landing-hero-inner" style="max-width: 900px;">
       <h1 class="landing-h1" style="font-size: 3.5rem;">Your Work Probably Has <span class="gradient-text">10 AI
           Automations</span> Waiting To Be Built</h1>
-      <p class="landing-subheading" style="font-size: 1.25rem;">Describe how you work and get 10 custom AI prompts + 5
-        AI agent automation blueprints with projected time saved and revenue impact for each.</p>
-      <p class="p-body" style="margin-bottom: 2.5rem; font-weight: 500; color: #cbd5e1;">Built for founders, operators,
+      <p class="landing-subheading" style="font-size: 1.25rem;">Describe how you work and get <span class="highlight">10
+          custom AI prompts</span> + <span class="highlight">5
+          AI agent automation blueprints</span> with projected time saved and revenue impact for each.</p>
+      <p class="p-body" style="margin-bottom: 2.5rem; font-weight: 500; color: #475569;">Built for founders, operators,
         and ambitious professionals using AI to save time and automate work.</p>
 
       <a href="https://rzp.io/rzp/hp460Ak" target="_blank" rel="noopener" class="buy-btn"
@@ -147,19 +154,19 @@
   <!-- ATTENTION / GOLD FISH TRIGGER -->
   <div class="section-dark text-center">
     <div class="max-w-3xl" style="text-align: left;">
-      <p class="p-body" style="font-size: 1.25rem; color: #e2e8f0; font-weight: 500;">Most people using AI today are
+      <p class="p-body" style="font-size: 1.25rem; color: #1e293b; font-weight: 500;">Most people using AI today are
         doing this:</p>
       <ul class="bullet-list" style="margin-bottom: 2rem;">
         <li>trying random prompts</li>
         <li>switching between tools</li>
         <li>testing things without a system</li>
       </ul>
-      <p class="p-body">But nothing actually becomes automated.</p>
+      <p class="p-body">But nothing actually becomes <span class="highlight">automated</span>.</p>
       <p class="p-body">So AI becomes another tool, not a time-saving system.</p>
-      <p class="p-body" style="color: #f1f5f9; font-weight: 500;">The people getting real results with AI are doing
+      <p class="p-body" style="color: #0f172a; font-weight: 500;">The people getting real results with AI are doing
         something different.</p>
-      <p class="p-body" style="color: #818cf8; font-weight: 700; font-size: 1.3rem;">They are building automation
-        workflows.</p>
+      <p class="p-body" style="color: #4f46e5; font-weight: 700; font-size: 1.3rem;">They are building <span
+          class="highlight">automation workflows</span>.</p>
     </div>
   </div>
 
@@ -168,7 +175,8 @@
     <div class="max-w-3xl">
       <h2 class="h2-title">Most People Are Using AI Completely Wrong</h2>
       <p class="p-body">Everyone is experimenting with AI. But very few people are using it where it matters most:
-        <strong style="color: #cbd5e1;">Inside daily work.</strong></p>
+        <strong style="color: #475569;">Inside daily work.</strong>
+      </p>
 
       <p class="p-body">That work could include:</p>
       <ul class="bullet-list">
@@ -199,8 +207,8 @@
         <li>manage projects and teams</li>
       </ul>
 
-      <p class="p-body" style="font-size: 1.25rem; color: #e2e8f0; font-style: italic;">"Because if your work involves
-        thinking and repetitive processes, AI can create enormous leverage."</p>
+      <p class="p-body" style="font-size: 1.25rem; color: #1e293b; font-style: italic;">"Because if your work involves
+        thinking and repetitive processes, AI can create <span class="highlight">enormous leverage</span>."</p>
     </div>
   </div>
 
@@ -211,8 +219,8 @@
       <p class="p-body">Tell us how your work or business operates. We generate a practical automation plan.</p>
 
       <div
-        style="background: #0f0f1a; border: 1px solid rgba(99,102,241,0.3); border-radius: 16px; padding: 2.5rem; margin-top: 3rem;">
-        <h3 style="font-size: 1.8rem; color: #f1f5f9; margin-bottom: 1rem;">10 Custom AI Prompts</h3>
+        style="background: #ffffff; border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 2.5rem; margin-top: 3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">10 Custom AI Prompts</h3>
         <p class="p-body">These are copy-paste prompts built specifically for your workflows.</p>
         <p class="p-body" style="margin-bottom: 0.5rem;">Examples include prompts for:</p>
         <ul class="bullet-list" style="margin-bottom: 2rem;">
@@ -227,8 +235,8 @@
       </div>
 
       <div
-        style="background: #0f0f1a; border: 1px solid rgba(52,211,153,0.3); border-radius: 16px; padding: 2.5rem; margin-top: 2rem;">
-        <h3 style="font-size: 1.8rem; color: #f1f5f9; margin-bottom: 1rem;">5 AI Agent Automation Blueprints</h3>
+        style="background: #ffffff; border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 2.5rem; margin-top: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">5 AI Agent Automation Blueprints</h3>
         <p class="p-body">We identify the five highest-impact automations in your workflow.</p>
         <p class="p-body" style="margin-bottom: 0.5rem;">For each automation you receive:</p>
         <ul class="bullet-list" style="margin-bottom: 2rem;">
@@ -238,7 +246,7 @@
           <li>time saved estimate</li>
           <li>revenue or productivity impact</li>
         </ul>
-        <p class="p-body" style="color: #34d399; font-weight: 500;">So you know exactly what to automate first.</p>
+        <p class="p-body" style="color: #059669; font-weight: 500;">So you know exactly what to automate first.</p>
       </div>
     </div>
   </div>
@@ -270,7 +278,7 @@
         <div class="p-body" style="margin: 0;">AI answers questions about company documents instantly.</div>
       </div>
 
-      <p class="p-body" style="margin-top: 2rem; color: #e2e8f0; font-weight: 500;">These automations can save hours
+      <p class="p-body" style="margin-top: 2rem; color: #334155; font-weight: 500;">These automations can save hours
         every week.</p>
     </div>
   </div>
@@ -289,7 +297,7 @@
       <p class="p-body">You can review the ideas before implementing anything. This reduces the risk and helps you
         understand where AI actually helps.</p>
 
-      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 4rem 0;">
+      <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 4rem 0;">
 
       <!-- Tribe -->
       <h2 class="h2-title" style="font-size: 2rem;">For People Who Want Leverage</h2>
@@ -302,13 +310,13 @@
         <li>scale their impact</li>
       </ul>
 
-      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 4rem 0;">
+      <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 4rem 0;">
 
       <!-- Regret -->
-      <h2 class="h2-title" style="font-size: 2rem; color: #f87171;">In The Next 12 Months</h2>
+      <h2 class="h2-title" style="font-size: 2rem; color: #dc2626;">In The Next 12 Months</h2>
       <p class="p-body">AI will automate more professional work than ever before. Some people will still be
         experimenting. Others will have automation systems running their workflows.</p>
-      <p class="p-body" style="color: #cbd5e1; font-weight: 500;">The difference will be knowing what to automate first.
+      <p class="p-body" style="color: #475569; font-weight: 500;">The difference will be knowing what to automate first.
       </p>
 
     </div>
@@ -333,8 +341,8 @@
         Generate My AI Automation Plan →
       </a>
       <p class="buy-note" style="margin-top: 1.5rem; font-size: 0.95rem; line-height: 1.6;">
-        10 custom prompts + 5 automation blueprints<br>
-        Tailored to your work or business for <strong style="color: #f1f5f9;">₹499</strong>.
+        <span class="highlight">10 custom prompts</span> + <span class="highlight">5 automation blueprints</span><br>
+        Tailored to your work or business for <strong style="color: #0f172a;">₹499</strong>.
       </p>
     </div>
   </div>

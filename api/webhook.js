@@ -28,7 +28,7 @@ async function sendFBPurchaseEvent(email, paymentId) {
         event_id: paymentId,
         action_source: 'website',
         user_data: { em: [hashedEmail] },
-        custom_data: { value: 499, currency: 'INR' }
+        custom_data: { value: 49, currency: 'INR' }
       }],
       access_token: accessToken
     })

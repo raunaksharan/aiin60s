@@ -311,14 +311,14 @@
   <div class="landing-hero" style="min-height: auto; padding: 6rem 2rem 4rem;">
     <div class="landing-hero-inner" style="max-width: 860px;">
       <p style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6366f1; margin-bottom: 1.25rem;">For founders, operators &amp; agency owners</p>
-      <h1 class="landing-h1">Your Team Is Doing Work Every Day <span class="gradient-text">That AI Could Run Automatically</span></h1>
-      <p class="landing-subheading" style="font-size: 1.15rem; margin-top: 1.25rem;">Describe your business and get a custom blueprint showing exactly which workflows to automate, how to build them, and how much time each one saves.</p>
+      <h1 class="landing-h1">Your Business Is Losing <span class="gradient-text">10+ Hours Every Week</span> To Work That Should Not Involve Humans</h1>
+      <p class="landing-subheading" style="font-size: 1.15rem; margin-top: 1.25rem;">Describe your business and get a custom blueprint — 10 AI prompts and 5 agent automations built for your exact workflows, with time saved per task.</p>
 
       <a href="https://rzp.io/rzp/hp460Ak" target="_blank" rel="noopener" class="buy-btn"
         style="padding: 1.25rem 3rem; font-size: 1.1rem; display: inline-block; margin-top: 2rem;">
-        Get My Automation Blueprint →
+        Show Me What To Automate →
       </a>
-      <p class="buy-note" style="margin-top: 0.85rem; font-size: 0.9rem;">Takes 3 minutes &nbsp;·&nbsp; No technical skills needed &nbsp;·&nbsp; ₹49</p>
+      <p class="buy-note" style="margin-top: 0.85rem; font-size: 0.9rem;">Takes 3 minutes &nbsp;·&nbsp; ₹49</p>
     </div>
   </div>
 
@@ -332,8 +332,8 @@
         <li>No automation</li>
         <li>No real time saved</li>
       </ul>
-      <p class="p-body">Meanwhile competitors who <em>do</em> have automation systems are running the same work in a fraction of the time.</p>
-      <p class="p-body" style="color: #4f46e5; font-weight: 700; font-size: 1.3rem;">Inside every business there are <span class="highlight">10+ workflows</span> that could be running on autopilot right now.</p>
+      <p class="p-body">That means every week you are paying people — or spending your own time — on work that costs you nothing to automate.</p>
+      <p class="p-body" style="color: #4f46e5; font-weight: 700; font-size: 1.3rem;">The problem is not effort. It is not knowing <span class="highlight">which 10 workflows to automate first</span>.</p>
     </div>
   </div>
 
@@ -487,15 +487,6 @@
     </div>
   </div>
 
-  <!-- REGRET TRIGGER -->
-  <div class="section-dark">
-    <div class="max-w-3xl">
-      <h2 class="h2-title" style="font-size: 2rem; color: #dc2626;">In The Next 12 Months</h2>
-      <p class="p-body">AI will automate more professional work than ever before. Some people will still be experimenting. Others will have automation systems running their workflows.</p>
-      <p class="p-body" style="color: #0f172a; font-weight: 600; font-size: 1.2rem;">The difference is knowing what to automate first.</p>
-    </div>
-  </div>
-
   <!-- FINAL CTA -->
   <div id="section-final-cta" class="section-dark text-center" style="background: #0f172a; padding: 6rem 2rem;">
     <div class="max-w-3xl text-center" style="margin: 0 auto;">
@@ -513,13 +504,12 @@
     </div>
   </div>
 
-  <!-- Divider -->
-  <div class="gate-divider">
-    <span>Already have a code? Enter it below</span>
+  <!-- Passcode Gate — hidden by default, toggled by link -->
+  <div style="text-align: center; padding: 1.5rem 2rem; background: #f8fafc; border-top: 1px solid rgba(0,0,0,0.05);">
+    <a href="#" id="toggle-gate" style="font-size: 0.82rem; color: #94a3b8; text-decoration: none;">Already purchased? Enter your access code</a>
   </div>
 
-  <!-- Passcode Gate -->
-  <div class="gate-section">
+  <div class="gate-section" id="gate-section" style="display: none;">
     <div class="gate-card">
       <div class="gate-lock">🔐</div>
       <h2>Enter your access code</h2>
@@ -531,7 +521,6 @@
       </div>
 
       <p id="error-msg" class="error hidden">Invalid passcode. Please try again.</p>
-
     </div>
   </div>
 
@@ -542,6 +531,17 @@
   </footer>
 
   <script src="js/auth.js"></script>
+  <script>
+    var toggle = document.getElementById('toggle-gate');
+    var gate = document.getElementById('gate-section');
+    if (toggle && gate) {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        gate.style.display = gate.style.display === 'none' ? 'flex' : 'none';
+        if (gate.style.display === 'flex') gate.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
+  </script>
   <script>
     // Scroll depth tracking — fires GA4 events at 25/50/75/90%
     (function () {

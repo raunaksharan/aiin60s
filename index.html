@@ -35,7 +35,6 @@
       src="https://www.facebook.com/tr?id=1295631849076932&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
   <style>
-    /* Content sections structure */
     .section-dark {
       background: #f8fafc;
       padding: 5rem 2rem;
@@ -113,18 +112,195 @@
       margin-bottom: 0.5rem;
     }
 
-    .price-tag {
-      font-family: monospace;
-      background: rgba(99, 102, 241, 0.1);
-      color: #4f46e5;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
     .highlight {
       color: #4f46e5;
       font-weight: 700;
+    }
+
+    /* Automation examples grid */
+    .automation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .automation-chip {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+      color: #1e293b;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .automation-chip-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    /* How it works steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 640px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: #f8fafc;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      background: #4f46e5;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin: 0 auto 1rem;
+    }
+
+    .step-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-desc {
+      font-size: 0.95rem;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* Preview section */
+    .preview-section {
+      background: #ffffff;
+      padding: 5rem 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .preview-card {
+      background: #f0fdf4;
+      border: 2px solid #bbf7d0;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .preview-label {
+      display: inline-block;
+      background: #059669;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .preview-automation-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    .preview-automation-desc {
+      font-size: 1rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .preview-time-saved {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #dcfce7;
+      color: #166534;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+    }
+
+    .blurred-automations {
+      position: relative;
+      margin-top: 0.5rem;
+    }
+
+    .blurred-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 0.75rem;
+      filter: blur(5px);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .blurred-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.4rem;
+    }
+
+    .blurred-card-desc {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    .unlock-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.92) 40%);
+      border-radius: 16px;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .unlock-overlay p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0;
+    }
+
+    .unlock-overlay span {
+      font-size: 0.95rem;
+      color: #64748b;
     }
   </style>
 </head>
@@ -134,28 +310,38 @@
   <!-- HERO SECTION -->
   <div class="landing-hero" style="min-height: auto; padding: 6rem 2rem 4rem;">
     <div class="landing-hero-inner" style="max-width: 900px;">
-      <h1 class="landing-h1" style="font-size: 3.5rem;">Your Daily Work Has <span class="gradient-text">10 Hidden AI
-          Automations</span> Waiting To Be Built</h1>
-      <p class="landing-subheading" style="font-size: 1.25rem;">Describe how you work and get <span class="highlight">10
-          custom AI prompts</span> + <span class="highlight">5
-          AI agent automation blueprints</span> with projected time saved and revenue impact for each.</p>
-      <p class="p-body" style="margin-bottom: 2.5rem; font-weight: 500; color: #475569;">Built for founders, operators,
-        and ambitious professionals using AI to save time and automate work.</p>
+      <h1 class="landing-h1" style="font-size: 3.5rem;">Find The <span class="gradient-text">10 AI Automations</span> Hidden In Your Daily Work</h1>
+      <p class="landing-subheading" style="font-size: 1.25rem;">Tell us how you work and we generate a <span class="highlight">personalized AI automation blueprint</span> in 3 minutes — with time saved and revenue impact for each.</p>
 
       <a href="https://rzp.io/rzp/hp460Ak" target="_blank" rel="noopener" class="buy-btn"
-        style="padding: 1.25rem 3rem; font-size: 1.1rem; display: inline-block;">
-        Generate My AI Automation Plan (₹49) →
+        style="padding: 1.25rem 3rem; font-size: 1.1rem; display: inline-block; margin-top: 1rem;">
+        Find My Automations (₹49) →
       </a>
-      <p class="buy-note" style="margin-top: 1rem; font-size: 0.95rem;">Takes 3 minutes. No technical skills required.
-      </p>
+      <p class="buy-note" style="margin-top: 1rem; font-size: 0.95rem;">No technical skills required &nbsp;·&nbsp; Takes less than 3 minutes</p>
     </div>
   </div>
 
-  <!-- ATTENTION / GOLD FISH TRIGGER -->
+  <!-- IMMEDIATE VALUE VISUALIZATION -->
   <div class="section-dark text-center">
-    <div class="max-w-3xl" style="text-align: left;">
-      <p class="p-body" style="font-size: 1.25rem; color: #1e293b; font-weight: 500;">Most people using AI today are
-        doing this:</p>
+    <div class="max-w-3xl">
+      <p style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6366f1; margin-bottom: 0.75rem;">Example Automations We Create</p>
+      <h2 class="h2-title" style="font-size: 2rem; margin-bottom: 0.5rem;">See What AI Can Automate For You</h2>
+      <p class="p-body" style="color: #64748b;">Here are the kinds of workflows we identify inside your work:</p>
+      <div class="automation-grid">
+        <div class="automation-chip"><span class="automation-chip-icon">🔍</span> Prospect research</div>
+        <div class="automation-chip"><span class="automation-chip-icon">📊</span> Weekly report generation</div>
+        <div class="automation-chip"><span class="automation-chip-icon">🎙️</span> Meeting summary automation</div>
+        <div class="automation-chip"><span class="automation-chip-icon">✉️</span> Client response drafts</div>
+        <div class="automation-chip"><span class="automation-chip-icon">🤖</span> Knowledge assistant bots</div>
+        <div class="automation-chip"><span class="automation-chip-icon">📈</span> Ad performance analysis</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM SECTION -->
+  <div class="section-light">
+    <div class="max-w-3xl">
+      <p class="p-body" style="font-size: 1.25rem; color: #1e293b; font-weight: 500;">Most people using AI today are doing this:</p>
       <ul class="bullet-list" style="margin-bottom: 2rem;">
         <li>trying random prompts</li>
         <li>switching between tools</li>
@@ -163,363 +349,147 @@
       </ul>
       <p class="p-body">But nothing actually becomes <span class="highlight">automated</span>.</p>
       <p class="p-body">So AI becomes another tool, not a time-saving system.</p>
-      <p class="p-body" style="color: #0f172a; font-weight: 500;">The people getting real results with AI are doing
-        something different.</p>
-      <p class="p-body" style="color: #4f46e5; font-weight: 700; font-size: 1.3rem;">They are building <span
-          class="highlight">automation workflows</span>.</p>
+      <p class="p-body" style="color: #0f172a; font-weight: 500;">The people getting real results with AI are doing something different.</p>
+      <p class="p-body" style="color: #4f46e5; font-weight: 700; font-size: 1.3rem;">They are building <span class="highlight">automation workflows</span>.</p>
     </div>
   </div>
 
-  <!-- PROBLEM SECTION -->
+  <!-- HOW IT WORKS -->
+  <div class="section-dark">
+    <div class="max-w-3xl text-center">
+      <p style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6366f1; margin-bottom: 0.75rem;">How It Works</p>
+      <h2 class="h2-title" style="font-size: 2rem; margin-bottom: 0;">Your Blueprint In 3 Steps</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-title">Describe your workflow</div>
+          <div class="step-desc">Tell us how your business or job operates — what you do every day.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-title">We analyze your tasks</div>
+          <div class="step-desc">Our system identifies the highest-impact automation opportunities inside your work.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-title">Get your blueprint</div>
+          <div class="step-desc">Receive 10 custom AI prompts + 5 agent blueprints with time saved and impact estimates.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIEW BEFORE PAYWALL (Biggest Conversion Driver) -->
+  <div class="preview-section">
+    <div class="max-w-3xl">
+      <p style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6366f1; margin-bottom: 0.75rem;">Preview Your Results</p>
+      <h2 class="h2-title" style="font-size: 2rem; margin-bottom: 0.5rem;">Here Is Your First Automation — Free</h2>
+      <p class="p-body" style="color: #64748b; margin-bottom: 2rem;">Every plan starts with this automation. The remaining 9 are built specifically for your work.</p>
+
+      <!-- First automation — visible -->
+      <div class="preview-card">
+        <span class="preview-label">Automation #1 — Unlocked</span>
+        <div class="preview-automation-title">Lead Research Automation</div>
+        <div class="preview-automation-desc">AI automatically collects prospect information, visits their website and LinkedIn, and generates a concise lead summary — so you walk into every sales conversation prepared.</div>
+        <div class="preview-time-saved">⏱️ Saves 3+ hours/week</div>
+      </div>
+
+      <!-- Remaining automations — blurred -->
+      <div class="blurred-automations">
+        <div class="blurred-card">
+          <div class="blurred-card-title">Weekly Report Generator</div>
+          <div class="blurred-card-desc">AI pulls data from your tools and writes a formatted performance report every Monday morning without you lifting a finger.</div>
+        </div>
+        <div class="blurred-card">
+          <div class="blurred-card-title">Meeting Summary & Action Items</div>
+          <div class="blurred-card-desc">AI transcribes meetings, extracts key decisions, and sends action items to each person automatically.</div>
+        </div>
+        <div class="blurred-card">
+          <div class="blurred-card-title">Client Response Drafts</div>
+          <div class="blurred-card-desc">AI drafts personalised client responses from your email history and tone, ready to send in one click.</div>
+        </div>
+
+        <div class="unlock-overlay">
+          <p>9 More Automations Tailored To Your Work</p>
+          <span>Plus 10 custom copy-paste AI prompts — all built around how you work</span>
+          <a href="https://rzp.io/rzp/hp460Ak" target="_blank" rel="noopener" class="buy-btn"
+            style="padding: 1.1rem 2.5rem; font-size: 1.05rem; display: inline-block;">
+            Unlock Full Plan — ₹49 →
+          </a>
+          <span style="font-size: 0.85rem; color: #94a3b8;">No technical skills required · Takes 3 minutes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE STUDY (Simplified) -->
+  <div class="section-dark" style="background: #f1f5f9;">
+    <div class="max-w-3xl">
+      <div style="background: #ffffff; border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.04);">
+        <p style="color: #4f46e5; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 0.5rem;">Real Example</p>
+        <h2 class="h2-title" style="font-size: 2rem; margin-bottom: 1.5rem;">Marketing Agency Case Study</h2>
+
+        <p class="p-body" style="margin-bottom: 2rem;">A marketing agency struggling with ad performance submitted their workflow. Here is what we found:</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+          <div style="background: #f8fafc; border-radius: 12px; padding: 1.25rem;">
+            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 0.5rem; font-weight: 600;">Automations Found</div>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 0.35rem 0; font-size: 0.95rem; color: #1e293b; border-bottom: 1px solid #e2e8f0;">📈 Ad performance reports</li>
+              <li style="padding: 0.35rem 0; font-size: 0.95rem; color: #1e293b; border-bottom: 1px solid #e2e8f0;">📣 Client campaign updates</li>
+              <li style="padding: 0.35rem 0; font-size: 0.95rem; color: #1e293b;">🔍 Prospect research</li>
+            </ul>
+          </div>
+          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <div style="font-size: 2.5rem; font-weight: 900; color: #059669;">12 hrs</div>
+            <div style="font-size: 0.95rem; color: #166534; font-weight: 600;">saved per week</div>
+          </div>
+        </div>
+
+        <div style="background: #1e293b; color: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
+          <p style="font-size: 1rem; margin: 0; color: #e2e8f0; line-height: 1.7;">Companies charge <strong style="color: white;">₹15,000–₹1,50,000</strong> for this kind of AI workflow audit as consulting. <strong style="color: #38bdf8;">You're getting it for ₹49.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL PROOF / IDENTITY -->
   <div class="section-light">
     <div class="max-w-3xl">
-      <h2 class="h2-title">Most People Are Using AI Completely Wrong</h2>
-      <p class="p-body">Everyone is experimenting with AI. But very few people are using it where it matters most:
-        <strong style="color: #475569;">Inside daily work.</strong>
-      </p>
-
-      <p class="p-body">That work could include:</p>
+      <h2 class="h2-title" style="font-size: 2rem;">Built For People Who Do Real Work</h2>
+      <p class="p-body">Not AI hobbyists. Not prompt collectors. This is for people who:</p>
       <ul class="bullet-list">
-        <li>prospect research</li>
-        <li>writing reports</li>
-        <li>client communication</li>
-        <li>internal documentation</li>
-        <li>research and analysis</li>
-        <li>repetitive operational tasks</li>
+        <li>run companies or agencies</li>
+        <li>manage operations and projects</li>
+        <li>work in consulting or research</li>
+        <li>want to scale without hiring more</li>
       </ul>
-
-      <p class="p-body">These workflows can become AI agents running 24/7. Most people just don’t know where to start.
-      </p>
+      <p class="p-body" style="font-size: 1.1rem; color: #1e293b; font-style: italic;">"If your work involves thinking and repetitive processes, AI can create <span class="highlight">enormous leverage</span> — you just need to know where to start."</p>
     </div>
   </div>
 
-  <!-- NARCISSISM / “BUILT FOR YOU” TRIGGER -->
+  <!-- REGRET TRIGGER -->
   <div class="section-dark">
     <div class="max-w-3xl">
-      <h2 class="h2-title">We Built This For People Who Actually Do The Work</h2>
-      <p class="p-body">Not AI hobbyists. Not prompt collectors. This is designed for people who:</p>
-
-      <ul class="bullet-list">
-        <li>run companies</li>
-        <li>manage operations</li>
-        <li>work in consulting or agencies</li>
-        <li>analyze data or research</li>
-        <li>manage projects and teams</li>
-      </ul>
-
-      <p class="p-body" style="font-size: 1.25rem; color: #1e293b; font-style: italic;">"Because if your work involves
-        thinking and repetitive processes, AI can create <span class="highlight">enormous leverage</span>."</p>
-    </div>
-  </div>
-
-  <!-- WHAT YOU GET -->
-  <div class="section-light">
-    <div class="max-w-3xl">
-      <h2 class="h2-title">Your AI Automation Blueprint</h2>
-      <p class="p-body">Tell us how your work or business operates. We generate a practical automation plan.</p>
-
-      <div
-        style="background: #ffffff; border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 2.5rem; margin-top: 3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-        <h3 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">10 Custom AI Prompts</h3>
-        <p class="p-body">These are copy-paste prompts built specifically for your workflows.</p>
-        <p class="p-body" style="margin-bottom: 0.5rem;">Examples include prompts for:</p>
-        <ul class="bullet-list" style="margin-bottom: 2rem;">
-          <li>research and analysis</li>
-          <li>writing and reporting</li>
-          <li>customer communication</li>
-          <li>lead generation</li>
-          <li>knowledge assistants</li>
-          <li>operational workflows</li>
-        </ul>
-        <p class="p-body">These prompts are based on your actual work context.</p>
-      </div>
-
-      <div
-        style="background: #ffffff; border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 2.5rem; margin-top: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-        <h3 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">5 AI Agent Automation Blueprints</h3>
-        <p class="p-body">We identify the five highest-impact automations in your workflow.</p>
-        <p class="p-body" style="margin-bottom: 0.5rem;">For each automation you receive:</p>
-        <ul class="bullet-list" style="margin-bottom: 2rem;">
-          <li>what task it replaces</li>
-          <li>how the AI agent works</li>
-          <li>tools required</li>
-          <li>time saved estimate</li>
-          <li>revenue or productivity impact</li>
-        </ul>
-        <p class="p-body" style="color: #059669; font-weight: 500;">So you know exactly what to automate first.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- CASE STUDY: SEE INSIDE THE PRODUCT -->
-  <div class="section-dark" style="background: #f1f5f9; border-top: 1px solid rgba(0,0,0,0.05);">
-    <div class="max-w-3xl">
-      <div
-        style="background: #ffffff; border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.04);">
-        <p class="value-eyebrow"
-          style="color: #4f46e5; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 0.5rem;">
-          See Inside The Product</p>
-        <h2 class="h2-title" style="margin-bottom: 0.5rem; font-size: 2.2rem;">Case Study: The Marketing Agency</h2>
-        <p class="p-body" style="margin-bottom: 3rem;">Here is exactly what a marketing agency struggling with ad
-          performance receives inside their custom action plan.</p>
-
-        <!-- 10 Prompts Section -->
-        <h3
-          style="font-size: 1.5rem; color: #0f172a; margin-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;">
-          Part 1: The 10 Custom AI Prompts</h3>
-        <p class="p-body" style="font-size: 1rem; margin-bottom: 2rem;">Copy-paste ready. Use with ChatGPT, Claude, or
-          any AI tool.</p>
-
-        <!-- Prompt Card 1 -->
-        <div
-          style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
-          <h4
-            style="color: #0f172a; font-size: 1.1rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
-            ⚡ Quick Wins: Ad Audit <span
-              style="font-size:0.8rem; background:#cbd5e1; padding:0.2rem 0.6rem; border-radius:4px; color:#1e293b;">Copy</span>
-          </h4>
-          <p
-            style="font-size: 0.95rem; line-height: 1.5; color: #475569; font-family: monospace; white-space: pre-wrap;">
-            <strong>🎭 Role:</strong> You are a digital marketing expert with deep experience in advertising
-            optimization
-            <strong>🏢 Context:</strong> My marketing agency is currently losing on ads and I need to identify areas for
-            improvement
-            <strong>🎯 Task:</strong> Your task is to analyze my current ad campaigns and identify the top 3 areas for
-            improvement
-            <strong>📋 Steps:</strong>
-            1. Review my current ad spend and campaign structure
-            2. Analyze my ad targeting and ad creative
-            3. Identify the top 3 areas for improvement based on industry benchmarks
-            <strong>⚠️ Constraints:</strong> Do not consider seasonal fluctuations. Focus only on Facebook and Google
-            Ads.
-            <strong>📤 Output:</strong> A numbered list of the top 3 areas for improvement with specific
-            recommendations.
-          </p>
-        </div>
-
-        <!-- Prompt Card 2 -->
-        <div
-          style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
-          <h4
-            style="color: #0f172a; font-size: 1.1rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
-            📊 Data Clarity: Performance Analysis <span
-              style="font-size:0.8rem; background:#cbd5e1; padding:0.2rem 0.6rem; border-radius:4px; color:#1e293b;">Copy</span>
-          </h4>
-          <p
-            style="font-size: 0.95rem; line-height: 1.5; color: #475569; font-family: monospace; white-space: pre-wrap;">
-            <strong>🎭 Role:</strong> You are a data analyst with experience in digital marketing
-            <strong>🏢 Context:</strong> My marketing agency is struggling to understand ad performance and make
-            data-driven decisions
-            <strong>🎯 Task:</strong> Your task is to analyze my ad performance data and identify key trends and
-            insights
-            <strong>📋 Steps:</strong>
-            1. Collect and clean my ad performance data from the last 6 months
-            2. Analyze the data to identify key trends and insights
-            3. Visualize the data in a clear and actionable way
-            <strong>⚠️ Constraints:</strong> Keep the analysis focused on the last 6 months. Focus only on key metrics
-            (CPC, CTR, CVR).
-            <strong>📤 Output:</strong> A detailed analysis of my ad performance data with key trends highlighted.
-          </p>
-        </div>
-
-        <div style="text-align: center; margin-bottom: 4rem;">
-          <p style="color: #64748b; font-style: italic;">...plus 8 more custom prompts covering Copwriting, Budget
-            Allocation, Competitor Analysis, Target Audience, Campaign Scaling, and more.</p>
-        </div>
-
-        <!-- 5 Blueprints Section -->
-        <h3
-          style="font-size: 1.5rem; color: #0f172a; margin-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;">
-          Part 2: The 5 AI Agent Blueprints</h3>
-        <p class="p-body" style="font-size: 1rem; margin-bottom: 2rem;">The top 5 workflows to automate with agents to
-          scale your operations without adding headcount.</p>
-
-        <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 3rem;">
-
-          <div
-            style="border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 12px; display: flex; gap: 1rem; align-items: flex-start;">
-            <div style="font-size: 2rem;">📈</div>
-            <div>
-              <h4 style="color: #0f172a; font-size: 1.1rem; margin-bottom: 0.3rem;">Ad Optimizer Agent</h4>
-              <p style="color: #475569; font-size: 0.95rem; margin-bottom: 0.8rem;">Analyzes ad performance & provides
-                recommendations for improvement.</p>
-              <div style="display: flex; gap: 1rem;">
-                <span
-                  style="background: #dcfce7; color: #166534; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">⏱️
-                  Saves 10 hrs/wk</span>
-                <span
-                  style="background: #dbeafe; color: #1e40af; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">💰
-                  +15% Ad ROI</span>
-              </div>
-            </div>
-          </div>
-
-          <div
-            style="border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 12px; display: flex; gap: 1rem; align-items: flex-start;">
-            <div style="font-size: 2rem;">🎯</div>
-            <div>
-              <h4 style="color: #0f172a; font-size: 1.1rem; margin-bottom: 0.3rem;">Target Audience Analyst</h4>
-              <p style="color: #475569; font-size: 0.95rem; margin-bottom: 0.8rem;">Analyzes target audience data to
-                provide insights for new ad campaigns.</p>
-              <div style="display: flex; gap: 1rem;">
-                <span
-                  style="background: #dcfce7; color: #166534; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">⏱️
-                  Saves 5 hrs/wk</span>
-                <span
-                  style="background: #dbeafe; color: #1e40af; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">📈
-                  +10% Conversions</span>
-              </div>
-            </div>
-          </div>
-
-          <div
-            style="border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 12px; display: flex; gap: 1rem; align-items: flex-start;">
-            <div style="font-size: 2rem;">🎨</div>
-            <div>
-              <h4 style="color: #0f172a; font-size: 1.1rem; margin-bottom: 0.3rem;">Ad Creative Generator</h4>
-              <p style="color: #475569; font-size: 0.95rem; margin-bottom: 0.8rem;">Generates new ad creative variations
-                based on industry benchmarks.</p>
-              <div style="display: flex; gap: 1rem;">
-                <span
-                  style="background: #dcfce7; color: #166534; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">⏱️
-                  Saves 8 hrs/wk</span>
-                <span
-                  style="background: #dbeafe; color: #1e40af; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">🖱️
-                  +12% CTR</span>
-              </div>
-            </div>
-          </div>
-
-          <div
-            style="border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 12px; display: flex; gap: 1rem; align-items: flex-start;">
-            <div style="font-size: 2rem;">⚡</div>
-            <div>
-              <h4 style="color: #0f172a; font-size: 1.1rem; margin-bottom: 0.3rem;">Landing Page Optimizer & Automator
-              </h4>
-              <p style="color: #475569; font-size: 0.95rem; margin-bottom: 0.8rem;">Optimizes landing pages to improve
-                conversion rates and automates ad campaign delivery.</p>
-              <div style="display: flex; gap: 1rem;">
-                <span
-                  style="background: #dcfce7; color: #166534; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">⏱️
-                  Saves 18 hrs/wk</span>
-                <span
-                  style="background: #dbeafe; color: #1e40af; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600;">💰
-                  +15% Ad ROI</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Combined Impact -->
-        <div style="background: #1e293b; color: white; padding: 2rem; border-radius: 12px; text-align: center;">
-          <h4 style="color: #38bdf8; font-size: 1.25rem; margin-bottom: 1rem;">Total Combined Impact</h4>
-          <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem; color: #e2e8f0;">"If you implement all 5
-            agents, you can expect a <strong style="color: white;">40% increase in ad ROI</strong>, <strong
-              style="color: white;">25% increase in ad conversions</strong>, and <strong style="color: white;">41+
-              hours/week in time savings</strong>."</p>
-          <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
-            <p style="font-size: 0.95rem; margin: 0; color: #94a3b8;"><strong>Want us to build this for
-                you?</strong><br>Our team can deploy these exact agents for your business in 1 week.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- BELIEVABILITY SECTION -->
-  <div class="section-dark">
-    <div class="max-w-3xl">
-      <h2 class="h2-title">Examples Of AI Automations Professionals Are Building</h2>
-      <p class="p-body" style="margin-bottom: 3rem;">Here are real automation opportunities we often see:</p>
-
-      <div class="example-block">
-        <div class="example-title">Research Assistant</div>
-        <div class="p-body" style="margin: 0;">AI collects information, summarizes insights, and prepares briefs.</div>
-      </div>
-      <div class="example-block">
-        <div class="example-title">Client Communication Assistant</div>
-        <div class="p-body" style="margin: 0;">AI drafts responses, updates, and proposals.</div>
-      </div>
-      <div class="example-block">
-        <div class="example-title">Market Intelligence Agent</div>
-        <div class="p-body" style="margin: 0;">AI monitors competitors and industry trends.</div>
-      </div>
-      <div class="example-block">
-        <div class="example-title">Reporting Automation</div>
-        <div class="p-body" style="margin: 0;">AI prepares weekly reports and insights.</div>
-      </div>
-      <div class="example-block">
-        <div class="example-title">Internal Knowledge Assistant</div>
-        <div class="p-body" style="margin: 0;">AI answers questions about company documents instantly.</div>
-      </div>
-
-      <p class="p-body" style="margin-top: 2rem; color: #334155; font-weight: 500;">These automations can save hours
-        every week.</p>
-    </div>
-  </div>
-
-  <!-- RISK AVERSION & TRIBE IDENTITY & REGRET -->
-  <div class="section-light">
-    <div class="max-w-3xl">
-
-      <!-- Risk -->
-      <h2 class="h2-title" style="font-size: 2rem;">You Don’t Need To Build Anything Yet</h2>
-      <p class="p-body">First you simply receive:</p>
-      <ul class="bullet-list">
-        <li>your 10 custom prompts</li>
-        <li>your 5 automation blueprints</li>
-      </ul>
-      <p class="p-body">You can review the ideas before implementing anything. This reduces the risk and helps you
-        understand where AI actually helps.</p>
-
-      <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 4rem 0;">
-
-      <!-- Tribe -->
-      <h2 class="h2-title" style="font-size: 2rem;">For People Who Want Leverage</h2>
-      <p class="p-body">Some people use AI just for fun. Others use it to multiply their output.</p>
-      <p class="p-body">This system is designed for the second group. People who want to:</p>
-      <ul class="bullet-list">
-        <li>work faster</li>
-        <li>automate repetitive tasks</li>
-        <li>build systems</li>
-        <li>scale their impact</li>
-      </ul>
-
-      <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 4rem 0;">
-
-      <!-- Regret -->
       <h2 class="h2-title" style="font-size: 2rem; color: #dc2626;">In The Next 12 Months</h2>
-      <p class="p-body">AI will automate more professional work than ever before. Some people will still be
-        experimenting. Others will have automation systems running their workflows.</p>
-      <p class="p-body" style="color: #475569; font-weight: 500;">The difference will be knowing what to automate first.
-      </p>
-
+      <p class="p-body">AI will automate more professional work than ever before. Some people will still be experimenting. Others will have automation systems running their workflows.</p>
+      <p class="p-body" style="color: #0f172a; font-weight: 600; font-size: 1.2rem;">The difference is knowing what to automate first.</p>
     </div>
   </div>
 
   <!-- FINAL CTA -->
-  <div class="section-dark text-center" style="padding: 6rem 2rem;">
+  <div class="section-dark text-center" style="background: #0f172a; padding: 6rem 2rem;">
     <div class="max-w-3xl text-center" style="margin: 0 auto;">
-      <h2 class="h2-title" style="font-size: 3rem;">Find The AI Automations <br>Inside Your Work</h2>
-      <p class="p-body" style="margin-bottom: 2rem;">Stop guessing how AI might help. Get a clear plan showing:</p>
-
-      <ul class="bullet-list" style="text-align: left; display: inline-block; margin-bottom: 3rem;">
-        <li>what to automate</li>
-        <li>how to automate it</li>
-        <li>what impact it will create</li>
-      </ul>
-
-      <br>
+      <h2 class="h2-title" style="font-size: 3rem; color: white;">Find Your Hidden AI Automations</h2>
+      <p class="p-body" style="color: #94a3b8; margin-bottom: 2.5rem;">Stop guessing. Get a clear plan showing what to automate, how to do it, and what impact it will create.</p>
 
       <a href="https://rzp.io/rzp/hp460Ak" target="_blank" rel="noopener" class="buy-btn"
         style="padding: 1.5rem 3rem; font-size: 1.25rem; display: inline-block;">
-        Generate My AI Automation Plan →
+        Generate My Automation Plan →
       </a>
-      <p class="buy-note" style="margin-top: 1.5rem; font-size: 0.95rem; line-height: 1.6;">
-        <span class="highlight">10 custom prompts</span> + <span class="highlight">5 automation blueprints</span><br>
-        Tailored to your work or business for <strong style="color: #0f172a;">₹49</strong>.
+      <p style="margin-top: 1.5rem; font-size: 0.95rem; color: #64748b; line-height: 1.8;">
+        <span style="color: #818cf8; font-weight: 600;">10 custom prompts</span> + <span style="color: #818cf8; font-weight: 600;">5 automation blueprints</span><br>
+        Tailored to your work for <strong style="color: white;">₹49</strong>
       </p>
     </div>
   </div>

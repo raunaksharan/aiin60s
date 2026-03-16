@@ -324,7 +324,7 @@
   </div>
 
   <!-- IMMEDIATE VALUE VISUALIZATION -->
-  <div class="section-dark text-center">
+  <div id="section-automations" class="section-dark text-center">
     <div class="max-w-3xl">
       <p style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6366f1; margin-bottom: 0.75rem;">Example Automations We Create</p>
       <h2 class="h2-title" style="font-size: 2rem; margin-bottom: 0.5rem;">See What AI Can Automate For You</h2>
@@ -341,7 +341,7 @@
   </div>
 
   <!-- PROBLEM SECTION -->
-  <div class="section-light">
+  <div id="section-problem" class="section-light">
     <div class="max-w-3xl">
       <p class="p-body" style="font-size: 1.25rem; color: #1e293b; font-weight: 500;">Most companies say they are "using AI".</p>
       <p class="p-body" style="color: #475569;">But in reality they are just testing random prompts.</p>
@@ -356,7 +356,7 @@
   </div>
 
   <!-- HOW IT WORKS -->
-  <div class="section-dark">
+  <div id="section-how-it-works" class="section-dark">
     <div class="max-w-3xl text-center">
       <p style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6366f1; margin-bottom: 0.75rem;">How It Works</p>
       <h2 class="h2-title" style="font-size: 2rem; margin-bottom: 0;">Your Blueprint In 3 Steps</h2>
@@ -381,7 +381,7 @@
   </div>
 
   <!-- PREVIEW BEFORE PAYWALL (Biggest Conversion Driver) -->
-  <div class="preview-section">
+  <div id="section-preview" class="preview-section">
     <div class="max-w-3xl">
       <p style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6366f1; margin-bottom: 0.75rem;">Preview Your Results</p>
       <h2 class="h2-title" style="font-size: 2rem; margin-bottom: 0.5rem;">Here Is Your First Automation — Free</h2>
@@ -428,7 +428,7 @@
   </div>
 
   <!-- WHO THIS IS FOR -->
-  <div class="section-dark">
+  <div id="section-who-for" class="section-dark">
     <div class="max-w-3xl">
       <p style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6366f1; margin-bottom: 0.75rem;">Who This Is For</p>
       <h2 class="h2-title" style="font-size: 2rem; margin-bottom: 1rem;">This Is Perfect For You If You...</h2>
@@ -458,7 +458,7 @@
   </div>
 
   <!-- CASE STUDY (Simplified) -->
-  <div class="section-dark" style="background: #f1f5f9;">
+  <div id="section-case-study" class="section-dark" style="background: #f1f5f9;">
     <div class="max-w-3xl">
       <div style="background: #ffffff; border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.04);">
         <p style="color: #4f46e5; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 0.5rem;">Real Example</p>
@@ -498,7 +498,7 @@
   </div>
 
   <!-- FINAL CTA -->
-  <div class="section-dark text-center" style="background: #0f172a; padding: 6rem 2rem;">
+  <div id="section-final-cta" class="section-dark text-center" style="background: #0f172a; padding: 6rem 2rem;">
     <div class="max-w-3xl text-center" style="margin: 0 auto;">
       <h2 class="h2-title" style="font-size: 3rem; color: white;">Find Your Hidden AI Automations</h2>
       <p class="p-body" style="color: #94a3b8; margin-bottom: 2.5rem;">Stop guessing. Get a clear plan showing what to automate, how to do it, and what impact it will create.</p>
@@ -543,6 +543,70 @@
   </footer>
 
   <script src="js/auth.js"></script>
+  <script>
+    // Scroll depth tracking — fires GA4 events at 25/50/75/90%
+    (function () {
+      var depths = [25, 50, 75, 90];
+      var fired = {};
+
+      function getScrollDepth() {
+        var scrolled = window.scrollY + window.innerHeight;
+        var total = document.documentElement.scrollHeight;
+        return Math.round((scrolled / total) * 100);
+      }
+
+      window.addEventListener('scroll', function () {
+        var depth = getScrollDepth();
+        depths.forEach(function (d) {
+          if (depth >= d && !fired[d]) {
+            fired[d] = true;
+            gtag('event', 'scroll_depth', { depth_percent: d });
+          }
+        });
+      }, { passive: true });
+    })();
+
+    // Section visibility tracking — fires when each key section enters viewport
+    (function () {
+      var sections = [
+        { id: 'section-automations',  label: 'example_automations' },
+        { id: 'section-problem',      label: 'problem_section' },
+        { id: 'section-how-it-works', label: 'how_it_works' },
+        { id: 'section-preview',      label: 'preview_paywall' },
+        { id: 'section-who-for',      label: 'who_this_is_for' },
+        { id: 'section-case-study',   label: 'case_study' },
+        { id: 'section-final-cta',    label: 'final_cta' },
+      ];
+
+      if (!('IntersectionObserver' in window)) return;
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var label = entry.target.getAttribute('data-track');
+            gtag('event', 'section_viewed', { section: label });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      sections.forEach(function (s) {
+        var el = document.getElementById(s.id);
+        if (el) {
+          el.setAttribute('data-track', s.label);
+          observer.observe(el);
+        }
+      });
+    })();
+
+    // CTA click tracking
+    document.querySelectorAll('a[href*="rzp.io"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var label = el.textContent.trim().substring(0, 50);
+        gtag('event', 'cta_click', { cta_text: label });
+      });
+    });
+  </script>
 </body>
 
 </html>

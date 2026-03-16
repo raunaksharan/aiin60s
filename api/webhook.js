@@ -37,7 +37,7 @@ async function sendFBPurchaseEvent(email, paymentId) {
 
 async function sendAccessEmail(email, name) {
   const firstName = name ? name.split(' ')[0] : 'there';
-  const loginUrl = (process.env.SITE_URL || 'https://aiin60s.vercel.app') + '/access.html';
+  const loginUrl = (process.env.SITE_URL || 'https://aiin60s.vercel.app') + '/index.html';
 
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',

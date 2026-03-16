@@ -526,9 +526,27 @@
     </div>
   </div>
 
+  <!-- Passcode Gate -->
+  <div class="gate-divider">
+    <span>Already purchased? Enter your access code below</span>
+  </div>
+
+  <div class="gate-section">
+    <div class="gate-card">
+      <div class="gate-lock">🔐</div>
+      <h2>Enter your access code</h2>
+      <p>You should have received this after your payment.</p>
+      <div class="gate-input-group">
+        <input type="text" id="passcode" placeholder="Enter passcode" autocomplete="off">
+        <button id="submit-code">Get My Prompts →</button>
+      </div>
+      <p id="error-msg" class="error hidden">Invalid passcode. Please try again.</p>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="landing-footer">
-    <p>© NotionDemand · team@notiondemand.com · Already purchased? Visit notiondemand.com/access</p>
+    <p>© NotionDemand · team@notiondemand.com</p>
   </footer>
 
   <script src="js/auth.js"></script>

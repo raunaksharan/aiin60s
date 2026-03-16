@@ -28,7 +28,7 @@ async function sendFBPurchaseEvent(email, paymentId) {
         event_id: paymentId,
         action_source: 'website',
         user_data: { em: [hashedEmail] },
-        custom_data: { value: 49, currency: 'INR' }
+        custom_data: { value: 99, currency: 'INR' }
       }],
       access_token: accessToken
     })
@@ -37,7 +37,7 @@ async function sendFBPurchaseEvent(email, paymentId) {
 
 async function sendAccessEmail(email, name) {
   const firstName = name ? name.split(' ')[0] : 'there';
-  const loginUrl = (process.env.SITE_URL || 'https://aiin60s.vercel.app') + '/index.html';
+  const loginUrl = (process.env.SITE_URL || 'https://aiin60s.vercel.app') + '/access.html';
 
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -53,7 +53,7 @@ async function sendAccessEmail(email, name) {
         <div style="font-family: -apple-system, sans-serif; max-width: 520px; margin: 0 auto; padding: 2rem;">
 
           <h2 style="color: #1e293b; margin-bottom: 0.5rem;">Hey ${firstName}! You're in. 🎉</h2>
-          <p style="color: #475569; margin-top: 0;">Your AI Prompt Generator access is ready. Here's everything you need:</p>
+          <p style="color: #475569; margin-top: 0;">Your AI Automation Blueprint is ready. Here's everything you need:</p>
 
           <div style="background: #f1f5f9; border-radius: 10px; padding: 1.5rem; text-align: center; margin: 1.5rem 0;">
             <p style="margin: 0 0 0.5rem; color: #64748b; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Your Access Code</p>

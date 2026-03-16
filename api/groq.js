@@ -38,7 +38,7 @@ Structure the prompts as:
 - Prompts 7-9: IMPLEMENTATION — prompts to build/automate specific workflows
 - Prompt 10: SCALE — a prompt that shows what's possible at full implementation
 
-### 3. RECOMMEND 4-5 AGENTS we can build for them in 1 week
+### 3. RECOMMEND exactly 5 AGENTS we can build for them in 1 week
 
 For each agent, include:
 - Agent name (clear, benefit-focused)

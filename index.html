@@ -311,8 +311,8 @@
   <div class="landing-hero" style="min-height: auto; padding: 6rem 2rem 4rem;">
     <div class="landing-hero-inner" style="max-width: 860px;">
       <p style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6366f1; margin-bottom: 1.25rem;">For founders, operators &amp; agency owners</p>
-      <h1 class="landing-h1">Your Business Is Losing <span class="gradient-text">10+ Hours Every Week</span> To Work That Should Not Involve Humans</h1>
-      <p class="landing-subheading" style="font-size: 1.15rem; margin-top: 1.25rem;">Founders and operators who automate 10 hours/week recover <strong style="color: #0f172a;">500+ hours a year</strong> — hours currently spent on research, reports, and repetitive ops. Describe your business and get your exact automation blueprint.</p>
+      <h1 class="landing-h1">Your Business Is Losing <span style="color: #dc2626; font-weight: 900;">10+ Hours Every Week</span> To Work That Should Not Involve Humans</h1>
+      <p class="landing-subheading" style="font-size: 1.15rem; margin-top: 1.25rem;">Describe your business. Get your exact AI automation blueprint in 3 minutes.</p>
 
       <a href="https://rzp.io/rzp/hp460Ak" target="_blank" rel="noopener" class="buy-btn"
         style="padding: 1.25rem 3rem; font-size: 1.1rem; display: inline-block; margin-top: 2rem;">
@@ -504,40 +504,12 @@
     </div>
   </div>
 
-  <!-- Passcode Gate — hidden by default, toggled via footer link -->
-
-  <div class="gate-section" id="gate-section" style="display: none;">
-    <div class="gate-card">
-      <div class="gate-lock">🔐</div>
-      <h2>Enter your access code</h2>
-      <p>You should have received this after your payment.</p>
-
-      <div class="gate-input-group">
-        <input type="text" id="passcode" placeholder="Enter passcode" autocomplete="off">
-        <button id="submit-code">Get My Prompts →</button>
-      </div>
-
-      <p id="error-msg" class="error hidden">Invalid passcode. Please try again.</p>
-    </div>
-  </div>
-
   <!-- Footer -->
   <footer class="landing-footer">
-    <p>© NotionDemand · <a href="mailto:team@notiondemand.com">team@notiondemand.com</a> · <a href="tel:+919082673098">+91 9082673098</a> · <a href="#" id="toggle-gate" style="color: #cbd5e1;">Already purchased?</a></p>
+    <p>© NotionDemand · <a href="mailto:team@notiondemand.com">team@notiondemand.com</a> · <a href="tel:+919082673098">+91 9082673098</a> · <a href="access.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.75rem;">Already purchased?</a></p>
   </footer>
 
   <script src="js/auth.js"></script>
-  <script>
-    var toggle = document.getElementById('toggle-gate');
-    var gate = document.getElementById('gate-section');
-    if (toggle && gate) {
-      toggle.addEventListener('click', function (e) {
-        e.preventDefault();
-        gate.style.display = gate.style.display === 'none' ? 'flex' : 'none';
-        if (gate.style.display === 'flex') gate.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      });
-    }
-  </script>
   <script>
     // Scroll depth tracking — fires GA4 events at 25/50/75/90%
     (function () {
